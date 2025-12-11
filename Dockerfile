@@ -29,7 +29,7 @@ RUN npm ci --only=production
 # Copy built application from builder stage
 COPY --from=builder /app/dist ./dist
 
-# Expose the port your NestJS app runs on (usually 3000)
+# Expose the port
 EXPOSE 3000
 
 # Start the application
