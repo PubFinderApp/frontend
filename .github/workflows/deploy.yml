@@ -49,14 +49,14 @@ jobs:
           cd /opt/myapp
           
           # Pull the latest frontend image
-          docker compose pull frontend
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nextjs-frontend:latest
           
           # Stop and remove only the frontend container
-          docker compose stop frontend
-          docker compose rm -f frontend
+          docker stop nextjs_frontend || true
+          docker rm nextjs_frontend || true
           
-          # Start the frontend container with the new image
-          docker compose up -d frontend
+          # Start only the frontend container
+          docker compose up -d --no-deps frontend
           
           # Clean up unused images
           docker image prune -f
