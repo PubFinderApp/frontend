@@ -39,7 +39,9 @@ RUN pnpm install --frozen-lockfile --prod
 # Copy built application from builder stage
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./next.config.js
+
+# Copy Next.js config if it exists (handle both .js and .mjs)
+COPY --from=builder /app/next.config.* ./
 
 # Expose the port
 EXPOSE 3000
