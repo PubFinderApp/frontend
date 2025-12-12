@@ -43,7 +43,7 @@ export const PubCard = ({ pub }: PubCardProps) => {
       </CardContent>
       <CardFooter className="mt-auto">
         <Button asChild className="w-full">
-          <Link href={`/pubs/${pub.id}`}>View Details</Link>
+          <Link href={`/pubs/${pub.id}`}>Touch me</Link>
         </Button>
       </CardFooter>
     </Card>
